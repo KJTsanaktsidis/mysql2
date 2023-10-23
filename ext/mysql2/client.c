@@ -315,6 +315,7 @@ static void *nogvl_connect(void *ptr) {
  */
 static VALUE invalidate_fd(int clientfd)
 {
+  fprintf(stderr, "zendbg: mysql2: invalidate_fd %d\n", clientfd);
 #ifdef O_CLOEXEC
   /* Atomically set CLOEXEC on the new FD in case another thread forks */
   int sockfd = open("/dev/null", O_RDWR | O_CLOEXEC);
